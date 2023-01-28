@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { TextField, Box, Button, Typography, styled } from '@mui/material';
 import { useState } from 'react';
 import { API } from '../../service/api.js'
 import { style } from '@mui/system';
+import { DataContext } from '../../contex/DataProvider.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const Component = styled(Box)`
     width: 400px;
@@ -76,7 +78,10 @@ const Login = () => {
     const [signup, setSignup] = useState(signupInitialValues);
     const [login , setLogin]  = useState(loginInitailValue);
     const [error , setError] = useState('');
-   
+
+    const {setAccount} = useContext(DataContext);
+    const navigate = useNavigate();
+
     const toggleSignup = () => {
         account === 'signup' ? toggleAccount('login') : toggleAccount('signup');
     }
@@ -94,6 +99,10 @@ const Login = () => {
         if(response.isSuccess)
         {
             setError('')
+            sessionStorage.setItem('accesstoken',`Bearer ${response.data.accessToken}`);
+            sessionStorage.setItem('refreshtoken',`Bearer ${response.data.refreshToken}`);
+            setAccount({username:response.data.username,name:response.data.name});
+            navigate("/");
         }
         else
         {
