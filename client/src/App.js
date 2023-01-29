@@ -6,6 +6,7 @@ import { useState } from "react";
 import Login from "./Components/Account/Login";
 import Home from "./Components/home/Home.jsx";
 import Header from "./Components/Header/Header";
+import CreatePost from "./Components/create/CreatePost";
 
 const PrivateRoute = ({isAuthenticated,...props})=>{
 
@@ -33,9 +34,16 @@ function App() {
         <div style={{ marginTop: 64 }}>
           <Routes>
             <Route path="/login" element={<Login isUserAuthenticated={isUserAuthenticated} />} />
+           
             <Route path='/' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
                 <Route path='/' element={<Home/>} />
             </Route>
+
+            <Route path='/create' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+               <Route path='/create' element={<CreatePost/>} />
+           </Route>
+
+
           </Routes>
         </div>
       </BrowserRouter>

@@ -5,6 +5,7 @@ import { API } from '../../service/api.js'
 import { style } from '@mui/system';
 import { DataContext } from '../../contex/DataProvider.jsx';
 import { useNavigate } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const Component = styled(Box)`
     width: 400px;
