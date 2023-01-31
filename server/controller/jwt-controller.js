@@ -11,7 +11,7 @@ export const authenticateToken = (request, response, next) => {
     if (token == null) {
         return response.status(401).json({ msg: 'token is missing' });
     }
-   console.log("token is ",token);
+   //console.log("token is ",token);
     jwt.verify(token, process.env.ACCESS_SECRET_KEY, (error, user) => {
         if (error) {
             return response.status(403).json({ msg: 'invalid token' })
