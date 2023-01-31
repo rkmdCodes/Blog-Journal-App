@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import { useContext, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { DataContext } from "../../contex/DataProvider";
 import { API } from "../../service/api.js";
 
@@ -64,14 +64,17 @@ const initialPost = {
 
 const CreatePost = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
   const [post, setPost] = useState(initialPost);
+
   const url = post.picture
     ? post.picture
     : "https://images.unsplash.com/photo-1543128639-4cb7e6eeef1b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwc2V0dXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80";
 
   const [file, setFile] = useState("");
   const { account } = useContext(DataContext);
-
+  
   console.log(file);
   
   const options = {
@@ -101,9 +104,25 @@ const CreatePost = () => {
     post.username = account.username;
   }, [file]);
 
+
   const handleChange = (event) => {
     setPost({ ...post, [event.target.name]: event.target.value });
+    console.log(post);
   };
+
+   const savePost = async ()=>{
+   
+      let response = await API.createPost(post);
+
+      if(response.isSuccess)
+      {
+        navigate('/');
+      }
+     
+   }
+
+
+
 
   return (
     <Container>
@@ -123,7 +142,7 @@ const CreatePost = () => {
           name="title"
           placeholder="Title"
         />
-        <Button variant="contained">Publish</Button>
+        <Button onClick={() => savePost()} variant="contained" color="primary">Publish</Button>
       </StyledFormControl>
 
       <TextArea
