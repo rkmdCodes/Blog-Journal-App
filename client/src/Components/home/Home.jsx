@@ -2,7 +2,7 @@ import { CanceledError } from "axios";
 import Banner from "../Banner/Banner";
 import Categories from "./Categories";
 import { Grid } from "@mui/material";
-
+import Post from "./post/post";
 
 
 
@@ -15,7 +15,7 @@ const Home = () => {
            <Categories />
         </Grid>
         <Grid container item xs={12} sm={10} lg={10}>
-           Posts
+           <Post/>
         </Grid>
       </Grid>
     </>
