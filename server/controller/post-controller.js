@@ -41,3 +41,23 @@ export const getPost = async (request, response) => {
       response.status(500).json({msg:error.message});
   }
 }
+
+export const updatePost = async (request,response)=>{
+
+  try{
+   
+     const post = await Post.findById(request.params.id);
+
+     if(!post)
+     {
+      return request.status(404).json({'msg':'post with given id didnt exist!'})
+     }
+
+     await Post.findByIdAndUpdate(request.params.id , {$set:request.body});
+     return response.status(200).json({'msg':'post updated successfully!'});
+
+  }catch(error)
+  {
+     return response.status(500).json({'msg':error.message});
+  }
+}

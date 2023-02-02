@@ -47,8 +47,4 @@ export const loginUser = async (request ,response)=>{
     {
        return response.status(500).json('Error while login up the user!');
     }
-  
-     
-
-
 }
