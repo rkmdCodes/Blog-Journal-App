@@ -2,7 +2,7 @@ import { CanceledError } from "axios";
 import Banner from "../Banner/Banner";
 import Categories from "./Categories";
 import { Grid } from "@mui/material";
-import Post from "./post/post";
+import Post from "./post/post.jsx";
 
 
 

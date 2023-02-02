@@ -5,7 +5,7 @@ const connection = async (username,password)=>{
   var clusterUrl ='mongodb+srv://' + username + ':' + password + '@cluster0.cyon8g8.mongodb.net/?retryWrites=true&w=majority';
   try{
       
-      console.log(clusterUrl);
+      //console.log(clusterUrl);
       await mongoose.connect(clusterUrl);
       console.log("database connected succesasfully");
   }

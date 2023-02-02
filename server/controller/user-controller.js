@@ -28,7 +28,7 @@ export const loginUser = async (request ,response)=>{
      return response.status(400).json({msg:'Username does not match!'});
    }
     try{ 
-        console.log(request.body.password);
+       
      let match = await bcrypt.compare(request.body.password,user.password);
      if(match)
      {
