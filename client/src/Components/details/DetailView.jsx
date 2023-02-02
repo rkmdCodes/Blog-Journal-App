@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { Box, Typography } from "@mui/material";
 import { style } from "@mui/system";
 import { useContext, useEffect, useState } from "react";
-import { useParams,Link } from "react-router-dom";
+import { useParams,Link, useNavigate} from "react-router-dom";
 import { API } from "../../service/api.js";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -51,7 +51,7 @@ const Description = styled(Typography)`
 
 const DetailView = () => {
   const [post, setPost] = useState({});
-
+ const navigate = useNavigate();
   const url = post.picture
     ? post.picture
     : "https://images.unsplash.com/photo-1543128639-4cb7e6eeef1b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwc2V0dXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80";
@@ -69,7 +69,17 @@ const DetailView = () => {
     fetchData();
   }, []);
 
+   
+  const deleteBlog = async()=>{
+   
+    const response =await API.deletePost(post._id);
+    if(response.isSuccess)
+    {
+      console.log("yaha toh aa rha hai yr ");
+       navigate('/');
+    }
 
+  }
 
   return (
     <Container>
@@ -80,9 +90,9 @@ const DetailView = () => {
           account.username === post.username ?
           <>
           <Link to={`/update/${post._id}`}>
-             <Edit color="primary"/>
+            <Edit color="primary"/>
           </Link>
-          <Delete  color="error" />
+          <Delete onClick={()=>deleteBlog()} color="error" />
           </>
           :
           <>
