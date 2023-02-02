@@ -1,4 +1,4 @@
-import { response } from "express";
+import { request, response } from "express";
 import Post from "../model/post.js";
 import mongoose from "mongoose";
 import { ObjectId } from "mongoose";
@@ -23,7 +23,7 @@ export const getAllPosts = async (request, response) => {
       posts = await Post.find({});
     }
 
-   // console.log(posts);
+    // console.log(posts);
     return response.status(200).json(posts);
   } catch (error) {
     return response.status(500).json({ msg: error.message });
@@ -32,32 +32,49 @@ export const getAllPosts = async (request, response) => {
 
 export const getPost = async (request, response) => {
   try {
-   // console.log(  request.params.id,' === id');
-      const post = await Post.findById(request.params.id);
-      
-      response.status(200).json(post);
-  } catch (error) {
-    
-      response.status(500).json({msg:error.message});
-  }
-}
+    // console.log(  request.params.id,' === id');
+    const post = await Post.findById(request.params.id);
 
-export const updatePost = async (request,response)=>{
+    response.status(200).json(post);
+  } catch (error) {
+    response.status(500).json({ msg: error.message });
+  }
+};
+
+export const updatePost = async (request, response) => {
+  try {
+    const post = await Post.findById(request.params.id);
+
+    if (!post) {
+      return request
+        .status(404)
+        .json({ msg: "post with given id didnt exist!" });
+    }
+
+    await Post.findByIdAndUpdate(request.params.id, { $set: request.body });
+    return response.status(200).json({ msg: "post updated successfully!" });
+  } catch (error) {
+    return response.status(500).json({ msg: error.message });
+  }
+};
+
+export const deletePost = async (request,response)=>{
 
   try{
+    console.log(request.params.id);
+    const post = await Post.findById(request.params.id);
+
+    if(!post)
+    {
+      return response.status(404).json({'msg':'Post not found'});
+    }
    
-     const post = await Post.findById(request.params.id);
+    await post.delete();
+    return response.status(200).json({'msg':'post deleted successfully!'});
 
-     if(!post)
-     {
-      return request.status(404).json({'msg':'post with given id didnt exist!'})
-     }
-
-     await Post.findByIdAndUpdate(request.params.id , {$set:request.body});
-     return response.status(200).json({'msg':'post updated successfully!'});
-
-  }catch(error)
-  {
-     return response.status(500).json({'msg':error.message});
   }
-}
+  catch(error)
+  {
+    return response.status(500).json({'msg':error.message});
+  }
+};
