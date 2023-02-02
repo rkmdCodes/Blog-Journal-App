@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { Box, Typography } from "@mui/material";
 import { style } from "@mui/system";
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import { API } from "../../service/api.js";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -79,7 +79,9 @@ const DetailView = () => {
         {
           account.username === post.username ?
           <>
-          <Edit color="primary"/>
+          <Link to={`/update/${post._id}`}>
+             <Edit color="primary"/>
+          </Link>
           <Delete  color="error" />
           </>
           :
