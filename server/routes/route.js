@@ -4,6 +4,7 @@ import { uploadImage,getImage} from '../controller/image-controller.js';
 import upload from '../utils/upload.js';
 import { createPost,getAllPosts ,getPost ,updatePost,deletePost} from '../controller/post-controller.js';
 import { authenticateToken } from '../controller/jwt-controller.js';
+import { newComment , getAllComments ,removeComment} from '../controller/comment-controller.js';
 
 const router=express.Router();
 router.post('/signup',signupUser);
@@ -15,4 +16,7 @@ router.get('/posts',authenticateToken,getAllPosts);
 router.get('/post/:id',authenticateToken,getPost);
 router.put('/update/:id' ,authenticateToken,updatePost);
 router.delete('/delete/:id',authenticateToken,deletePost);
+router.post('/comment/new',authenticateToken,newComment);
+router.get('/comments/:id',authenticateToken,getAllComments);
+router.delete('/remove/:id',authenticateToken,removeComment);
 export default router;
