@@ -8,6 +8,8 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { DataContext } from "../../contex/DataProvider.jsx";
 
+import Comments from "./comments/Comments.jsx";
+
 const Container = styled(Box)`
   margin: 50px 100px;
 `;
@@ -107,6 +109,7 @@ const DetailView = () => {
         <Typography style={{marginLeft:'auto'}} >{new Date(post.createdDate).toDateString()}</Typography>
       </Author>
       <Description>{post.description}</Description>
+      <Comments post={post} />
     </Container>
   );
 };
