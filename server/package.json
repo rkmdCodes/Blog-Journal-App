@@ -5,10 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/index.js",
-    "build": "babel src -d dist",
+    
     "start": "node index.js",
-    "both-dev": "concurrently \"npm run dev\" \"npm --prefix ../client/ run dev\""
 },
   "author": "",
   "license": "ISC",
