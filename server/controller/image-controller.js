@@ -2,7 +2,7 @@ import { response } from "express";
 import grid from 'gridfs-stream';
 import mongoose from "mongoose";
 
-const url = 'http://localhost:8000';
+const url = 'https://real-time-chat-0dbg.onrender.com';
 const conn = mongoose.connection;
 let gfs,gridfsBucket;
 conn.once('open',()=>{
