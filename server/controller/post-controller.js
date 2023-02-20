@@ -17,9 +17,11 @@ export const getAllPosts = async (request, response) => {
   let category = request.query.category;
   let posts;
   try {
-    if (category) {
+    if (category)
+    {
       posts = await Post.find({ categories: category });
-    } else {
+    } else
+    {
       posts = await Post.find({});
     }
 

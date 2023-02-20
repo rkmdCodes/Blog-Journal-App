@@ -2,7 +2,7 @@ import { response } from "express";
 import grid from 'gridfs-stream';
 import mongoose from "mongoose";
 
-const url = 'https://real-time-chat-0dbg.onrender.com';
+const url = 'https://jade-caramel-e6337d.netlify.app';
 const conn = mongoose.connection;
 let gfs,gridfsBucket;
 conn.once('open',()=>{
