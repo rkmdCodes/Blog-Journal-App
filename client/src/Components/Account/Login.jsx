@@ -99,7 +99,7 @@ const Login = ({isUserAuthenticated}) => {
         let response = await API.userLogin(login);
         if(response.isSuccess)
         {
-            setError('')
+            setError('');
             sessionStorage.setItem('accesstoken',`Bearer ${response.data.accessToken}`);
             sessionStorage.setItem('refreshtoken',`Bearer ${response.data.refreshToken}`);
             setAccount({username:response.data.username,name:response.data.name});
@@ -107,7 +107,7 @@ const Login = ({isUserAuthenticated}) => {
             isUserAuthenticated(true);
         }
         else
-        {
+        {   alert(response.msg);
             setError('Something went Wrong Please try again later!')
         }
 
@@ -137,7 +137,7 @@ const Login = ({isUserAuthenticated}) => {
                     account === 'login' ?
                         <Wrapper>
                             <TextField variant='standard' value = {login.username} onChange={(e)=>onValueChange(e)} name='username' label="Enter username" />
-                            <TextField variant='standard' value = {login.password}  onChange={(e)=>onValueChange(e)} name='password' label="Enter password" />
+                            <TextField  type="password" variant='standard' value = {login.password}  onChange={(e)=>onValueChange(e)} name='password' label="Enter password" />
                               
                              { error && <Error>{error}</Error>} 
                              
@@ -161,6 +161,7 @@ const Login = ({isUserAuthenticated}) => {
                         </Wrapper>
                 }
             </Box>
+                
         </Component>
     )
 }

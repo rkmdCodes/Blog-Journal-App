@@ -27,7 +27,7 @@ const Banner = ()=>{
     return (
       <Image>
         <Heading>BLOG</Heading>
-        <SubHeading>CODE FOR INTERVIEW</SubHeading>
+        <SubHeading>Developed By Rajat</SubHeading>
       </Image>
     )
 };
