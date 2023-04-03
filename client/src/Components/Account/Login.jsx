@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import {Link} from 'react-router-dom';
 
 const Component = styled(Box)`
+    
     width: 400px;
     margin: auto;
     box-shadow: 5px 2px 5px 2px rgb(0 0 0/ 0.6);
