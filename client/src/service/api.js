@@ -3,7 +3,7 @@ import axios from 'axios';
 import { API_NOTIFICATION_MESSAGES, SERVICE_URLS } from '../constants/config.js';
 import { getAccessToken,getType } from '../utils/common-utils.js';
 
-const API_URL = 'https://full-stack-blog-site-clone.onrender.com';
+const API_URL = 'https://full-stack-blog-site-clone-2.onrender.com';
 
 const axiosInstance = axios.create({
     baseURL: API_URL,

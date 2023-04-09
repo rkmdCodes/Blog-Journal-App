@@ -2,7 +2,7 @@ import { response } from "express";
 import grid from 'gridfs-stream';
 import mongoose from "mongoose";
 
-const url = 'https://full-stack-blog-site-clone-2.onrender.com';
+const url = 'https://full-stack-blog-site-clone-2.onrender.com/';
 const conn = mongoose.connection;
 let gfs,gridfsBucket;
 conn.once('open',()=>{
