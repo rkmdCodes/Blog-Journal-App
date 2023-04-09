@@ -15,52 +15,82 @@ import { API } from "../../service/api.js";
 
 
 
+const Container = styled(Box)`
+    margin: 50px 100px
+`;
 
 
-const Container = styled(Box)(({ theme }) => ({
-  margin: '50px 100px',
-  [theme.breakpoints.down('md')]: {
-      margin: 0
-  },
-}));
-
-const Image = styled("img")({
-  height: "50vh",
-  width: "100%",
-  objectFit: "cover",
-});
+const Image = styled('img')({
+    width: '100%',
+    objectFit: 'cover',
+    height: '50vh'
+}); 
 
 const StyledFormControl = styled(FormControl)`
-  margin-top: 10x;
-  display: flex;
-  flex-direction: row;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+
 `;
 
 const InputTextField = styled(InputBase)`
-  flex: 1;
-  margin: 0px 30px;
-  font-size: 25px;
+flex: 1;
+margin: 0 30px;
+font-size: 25px;
+color: #ffffff ;
+backdrop-filter: blur(50px); 
+border-radius: 7px;
+  box-shadow: 10px 10px 10px rgba(30, 30, 30, 0.3);
+  background-image:linear-gradient(to bottom right, rgba(255,255,255,0.15), rgba(255,255,255,0.15));
+
+  &:hover {
+    background: transparent;
+    background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0.3));
+  }
 `;
 
-const TextArea = styled(TextareaAutosize)`
-  width: 100%;
+const PublishButton = styled(Button)`
+text-transform: none;
+  background: transparent;
+  height: 48px;
+  border-radius: 7px;
+  box-shadow: 25px 25px 25px rgba(30, 30, 30, 0.3);
+  background-image:linear-gradient(to bottom right, rgba(255,255,255,0.5), rgba(255,255,255,0.2));
+  transition: all 0.7s ease;
+
+  &:hover {
+    background: #f913fa;
+    background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
+  }
+`;
+
+const Textarea = styled(TextareaAutosize)`
+  width: 90%;
   margin-top: 50px;
   font-size: 18px;
   border: none;
+  background: transparent;
+  box-shadow: 25px 25px 25px rgba(30, 30, 30, 0.3);
+  background-image:linear-gradient(to bottom right, rgba(255,255,255,0.1), rgba(255,255,255,0.1));
+  color: #ffffff ;
+  &:hover {
+    background: transparent;
+    background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0.3));
+  }
+
   &:focus-visible {
-    outline: none;
+    outline: none
   }
 `;
 
 const initialPost = {
-  title: "",
-  description: "",
-  picture: "",
-  username: "",
-  categories: "",
-  createdDate: new Date(),
-};
-
+  title: '',
+  description: '',
+  picture: '',
+  username: '',
+  categories: '',
+  createDate: new Date()
+}
 const CreatePost = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -128,7 +158,7 @@ const CreatePost = () => {
       <Image src={url} alt="banner" />
       <StyledFormControl>
         <label htmlFor="fileInput">
-          <AddPhotoAlternateIcon fontSize="large" color="action" />
+          <AddPhotoAlternateIcon fontSize="large" color="secondary" />
         </label>
         <input
           type="file"
@@ -141,10 +171,10 @@ const CreatePost = () => {
           name="title"
           placeholder="Title"
         />
-        <Button onClick={() => savePost()} variant="contained" color="primary">Publish</Button>
+        <PublishButton onClick={() => savePost()} variant="contained" color="primary">Publish</PublishButton>
       </StyledFormControl>
 
-      <TextArea
+      <Textarea
         minRows={5}
         placeholder="Tell Your Story!"
         name="description"

@@ -282,19 +282,41 @@ const Login = ({ isUserAuthenticated }) => {
               variant="standard"
               onChange={(e) => onInputChange(e)}
               name="name"
+              value={signup.name}
               label="Enter name"
+              color="secondary"
+              InputProps={{
+                style: {
+                  color: "white",
+                 }}}
+              InputLabelProps={{ style: { color: "#220056" } }}
             />
             <TextField
               variant="standard"
+              value={signup.username}
               onChange={(e) => onInputChange(e)}
               name="username"
+              color="secondary"
               label="Enter username"
+              InputProps={{
+                style: {
+                  color: "white",
+                 }}}
+              InputLabelProps={{ style: { color: "#220056" } }}
             />
             <TextField
               variant="standard"
+              value={signup.password}
               onChange={(e) => onInputChange(e)}
               name="password"
+              color="secondary"
+              type="password"
               label="Enter password"
+              InputProps={{
+                style: {
+                  color: "white",
+                 }}}
+              InputLabelProps={{ style: { color: "#220056" } }}
               onKeyPress={(event) => {
                 if (event.key === "Enter") {
                   signupUser();
