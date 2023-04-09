@@ -4,21 +4,33 @@ import { categories } from "../../constants/data.js";
 
 const StyledTable = styled(Table)`
     border: 1px solid rgba(224, 224, 224, 1);
+    background-image:linear-gradient(to bottom right, rgba(255,255,255,0.12), rgba(255,255,255,0.15));
+    backdrop-filter: blur(50px); 
+    border-radius:10px;
 `;
     
 const StyledButton = styled(Button)`
     margin: 20px;
-    width: 85%;
-    background: #6495ED;
-    color: #fff;
+    width: 85%; 
     text-decoration: none;
-`;
-    
-const StyledLink = styled(Link)`
-    text-decoration: none;
-    color: inherit;
+    background: transparent;
+  height: 48px;
+  border-radius: 7px;
+  box-shadow: 25px 25px 25px rgba(30, 30, 30, 0.3);
+  background-image:linear-gradient(to bottom right, rgba(255,255,255,0.5), rgba(255,255,255,0.2));
+
+  &:hover {
+    background: #f913fa;
+    background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
+  }
+
+
 `;
 
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: #FFFFFF;
+`;
 
 const Categories = () => {
 
