@@ -9,6 +9,15 @@ const Component = styled(Box)`
     margin-top: 30px;
     background: #F5F5F5;
     padding: 10px;
+    background: transparent;
+  border-radius: 10px;
+  box-shadow: 25px 25px 25px rgba(30, 30, 30, 0.3);
+  background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
+
+  &:hover {
+    background: #f913fa;
+    background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
+  }
 `;
 
 const Container = styled(Box)`
@@ -17,14 +26,16 @@ const Container = styled(Box)`
 `;
 
 const Name = styled(Typography)`
-    font-weight: 600,
+    font-weight: 800,
     font-size: 18px;
     margin-right: 20px;
+    color:#1b0143
 `;
 
 const StyledDate = styled(Typography)`
     font-size: 14px;
-    color: #878787;
+    color: black;
+
 `;
 
 const Delete = styled(DeleteIcon)`
@@ -47,7 +58,7 @@ const removeComment =async ()=>{
 
   return ( <Component>
       <Container>
-         <Name>{comment.name}</Name>
+         <Name fontWeight="800" >{comment.name}</Name>
          <StyledDate>{new Date(comment.date).toDateString()}</StyledDate>
          {comment.name === account.username && <Delete onClick={()=>removeComment()} />}
       </Container>

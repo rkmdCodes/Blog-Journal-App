@@ -8,6 +8,15 @@ import Comment from "./Comment.jsx";
 const Container = styled(Box)`
   margin-top: 100px;
   display: flex;
+  background: transparent;
+  border-radius: 10px;
+  box-shadow: 25px 25px 25px rgba(30, 30, 30, 0.3);
+  background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
+
+  &:hover {
+    background: #f913fa;
+    background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
+  }
 `;
 
 const Image = styled("img")({
@@ -16,10 +25,26 @@ const Image = styled("img")({
   borderRadius: "50%",
 });
 
+const StyledButton = styled(Button)`
+text-transform: none;
+  background: transparent;
+  height: 48px;
+  border-radius: 7px;
+  box-shadow: 25px 25px 25px rgba(30, 30, 30, 0.3);
+  background-image:linear-gradient(to bottom right, rgba(255,255,255,0.5), rgba(255,255,255,0.2));
+  transition: all 0.7s ease;
+
+  &:hover {
+    background: #f913fa;
+    background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
+`;
+
 const StyledTextArea = styled(TextareaAutosize)`
   height: 100px;
   width: 100%;
   margin: 0 20px;
+  font-size:14px;
+  }
 `;
 
 const InitialValues = {
@@ -81,15 +106,12 @@ export const Comments = ({ post }) => {
           value={comment.comments}
           onChange={(event) => handleChange(event)}
         />
-        <Button
-          variant="contained"
-          color="primary"
-          size="medium"
-          style={{ height: "40px" }}
+        <StyledButton
+         variant = "contained"
           onClick = {(event)=>addComment(event)}
         >
           Post
-        </Button>
+        </StyledButton>
       </Container>
       <Box>
         {

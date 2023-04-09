@@ -13,12 +13,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { DataContext } from "../../contex/DataProvider";
 import { API } from "../../service/api.js";
 
-let axiosConfig = {
-  headers: {
-      'Content-Type': 'application/json;charset=UTF-8',
-      "Access-Control-Allow-Origin": "*",
-  }
-};
+
+
 
 
 const Container = styled(Box)(({ theme }) => ({

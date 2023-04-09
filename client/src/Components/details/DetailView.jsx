@@ -4,47 +4,68 @@ import { style } from "@mui/system";
 import { useContext, useEffect, useState } from "react";
 import { useParams,Link, useNavigate} from "react-router-dom";
 import { API } from "../../service/api.js";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
+import {Edit,Delete} from "@mui/icons-material";
 import { DataContext } from "../../contex/DataProvider.jsx";
 
 import Comments from "./comments/Comments.jsx";
 
 const Container = styled(Box)`
-  margin: 50px 100px;
+    margin: '50px 100px';
+    background-image:linear-gradient(to bottom right, rgba(255,255,255,0.5), rgba(255,255,255,0.4));
+    backdrop-filter: blur(50px); 
+    border-radius:10px;
+    border: 5px solid transparent;
+    border-radius:10px;
+    & > img, & > p {
+        padding: 0 5px 5px 5px;
+    }
 `;
 
-const Image = styled("img")({
-  width: "100%",
-  height: "50vh",
-  objectFit: "cover",
+const Image = styled('img')({
+    width: '100%',
+    height: '50vh',
+    objectFit: 'cover'
 });
 
+const EditIcon = styled(Edit)`
+    margin: 5px;
+    padding: 5px;
+    backdrop-filter: blur(50px); 
+    border-radius:10px;
+    background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
+    
+    &:hover {
+        background: #f913fa;
+        box-shadow: 5px 5px 5px rgba(30, 30, 30, 0.3);
+        background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
+      }
+`;
+
+const DeleteIcon = styled(Delete)`
+margin: 5px;
+padding: 5px;
+backdrop-filter: blur(50px); 
+border-radius:10px;
+background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
+
+&:hover {
+    background: #f913fa;
+    box-shadow: 5px 5px 5px rgba(30, 30, 30, 0.3);
+    background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
+  }
+`;
+
 const Heading = styled(Typography)`
-  font-size: 38px;
-  font-weight: 600;
-  text-align: center;
-  margin: 50px 0 10px 0;
-  word-break:break-word;
+    font-size: 38px;
+    font-weight: 600;
+    text-align: center;
+    margin: 50px 0 10px 0;
 `;
 
-const Edit = styled(EditIcon)`
-  margin:5px;
-  padding:5px;
-  border:1px solid #878787;
-  border-radius:10px;
-`;
-
-const Delete = styled(DeleteIcon)`
-  margin:5px;
-  padding:5px;
-  border:1px solid #878787;
-  border-radius:10px;
-`;
 const Author = styled(Box)`
-  color:#878787;
-  margin:20px 0;
-  display:flex;
+    color: '#878787',
+    display: 'flex',
+    margin: '20px 0',
 `;
 
 const Description = styled(Typography)`
@@ -92,9 +113,9 @@ const DetailView = () => {
           account.username === post.username ?
           <>
           <Link to={`/update/${post._id}`}>
-            <Edit color="primary"/>
+            <EditIcon color="primary"/>
           </Link>
-          <Delete onClick={()=>deleteBlog()} color="error" />
+          <DeleteIcon onClick={()=>deleteBlog()} color="error" />
           </>
           :
           <>
