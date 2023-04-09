@@ -2,7 +2,6 @@ import "./App.css";
 import DataProvider from "./contex/DataProvider";
 import { BrowserRouter, Routes, Route,Outlet,Navigate } from "react-router-dom";
 import { useState } from "react";
-
 import Login from "./Components/Account/Login";
 import Home from "./Components/home/Home.jsx";
 import Header from "./Components/Header/Header";
