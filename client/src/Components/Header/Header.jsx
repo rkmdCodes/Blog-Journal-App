@@ -6,8 +6,10 @@ const Component = styled(AppBar)`
     color: #f913fa ;
     backdrop-filter: blur(20px) saturate(60%); 
   background-image:linear-gradient(to bottom right, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
-
   height: auto ;  
+  &:hover {
+    box-shadow: 5px 5px 5px  rgb(249, 19, 250,0.3) ;
+  }
 `;
 
 const Container = styled(Toolbar)`
@@ -38,11 +40,10 @@ const StyleButton = styled(Button)`
     transition: all 0.7s ease;
 
     &:hover {
-        background: #f913fa;
-        backdrop-filter: blur(75px);
-        background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
-        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
-    }
+        transform:scale(1.04);
+        box-shadow: 6px 6px 5px rgb(249, 19, 250,0.3) ;
+        background-image:linear-gradient(to bottom right,rgba(249,19, 250,0.7),rgba(255,255,255,0.0));
+      }
 `;
 
 

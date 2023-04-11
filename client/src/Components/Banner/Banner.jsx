@@ -12,13 +12,14 @@ justify-content: center;
 
 const Heading = styled(Typography)`
   font-size:70px;
+  backdrop-filter: blur(5px);
   color:#ffffff;
-  line-height:1;
 `;
 
 const SubHeading = styled(Typography)`
   font-size:20px;
-  background:#ffffff;
+  color:#ffffff;
+  backdrop-filter: blur(5px);
 `;
 
 
@@ -26,8 +27,8 @@ const Banner = ()=>{
     
     return (
       <Image>
-        <Heading>BLOG</Heading>
-        <SubHeading>Developed By Rajat</SubHeading>
+        <Heading>Blog And Journal</Heading>
+        <SubHeading>Rajat Dwivedi</SubHeading>
       </Image>
     )
 };

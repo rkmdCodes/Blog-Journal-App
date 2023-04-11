@@ -115,7 +115,7 @@ const DetailView = () => {
           <Link to={`/update/${post._id}`}>
             <EditIcon color="primary"/>
           </Link>
-          <Delete onClick={()=>deleteBlog()} color="error" />
+          <DeleteIcon onClick={()=>deleteBlog()} color="error" />
           </>
           :
           <>

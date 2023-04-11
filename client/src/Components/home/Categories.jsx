@@ -7,8 +7,14 @@ const StyledTable = styled(Table)`
     background-image:linear-gradient(to bottom right, rgba(255,255,255,0.12), rgba(255,255,255,0.15));
     backdrop-filter: blur(50px); 
     border-radius:10px;
+
+    &:hover{
+        box-shadow:1px 1px 1px rgb(249,19,250,0.3);
+        border:1px solid #f913fa;
+    }
 `;
-    
+
+
 const StyledButton = styled(Button)`
     margin: 20px;
     width: 85%; 
@@ -18,13 +24,13 @@ const StyledButton = styled(Button)`
   border-radius: 7px;
   box-shadow: 25px 25px 25px rgba(30, 30, 30, 0.3);
   background-image:linear-gradient(to bottom right, rgba(255,255,255,0.5), rgba(255,255,255,0.2));
+  transition: all 0.3s ease;
 
   &:hover {
-    background: #f913fa;
-    background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
+    transform:scale(1.04);
+    box-shadow: 6px 6px 5px rgb(249, 19, 250,0.3) ;
+    background-image:linear-gradient(to bottom right,rgba(249,19, 250,0.7),rgba(255,255,255,0.0));
   }
-
-
 `;
 
 const StyledLink = styled(Link)`
@@ -43,7 +49,7 @@ const Categories = () => {
     <>
       <StyledLink  to={`/create?category=${category ||''}`} >
        
-             <StyledButton variant="contained"> Create Blog </StyledButton>
+             <StyledButton variant="standard"> Create Blog </StyledButton>
          
       </StyledLink>
       <StyledTable>

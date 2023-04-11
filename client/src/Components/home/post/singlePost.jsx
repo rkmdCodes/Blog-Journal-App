@@ -10,6 +10,7 @@ const Container = styled(Box)`
     align-items: center;
     flex-direction: column;
     height: 350px;
+    border:5px solid transparent;
     background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
     backdrop-filter: blur(50px); 
     border-radius:10px;
@@ -18,10 +19,10 @@ const Container = styled(Box)`
         padding: 0 5px 5px 5px;
     }
     &:hover {
-
-        background: #f913fa;
-        box-shadow: 25px 25px 25px rgba(30, 30, 30, 0.3);
-        background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
+        transform:scale(1.04);
+        box-shadow: 10px 10px 10px  rgb(249, 19, 250,0.3) ;
+        border:5px solid #f913fa;
+        background-image:linear-gradient(to bottom right,rgba(249,19, 250,0.7),rgba(255,255,255,0.0));
       }
 `;
 
